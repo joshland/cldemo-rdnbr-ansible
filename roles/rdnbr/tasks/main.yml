@@ -1,7 +1,20 @@
 # Since rdnbr is experimental, it is located in the testing apt repository.
 # This task adds the testing repo.
 - name: add cl testing repo
-  apt_repository: repo='deb http://repo.cumulusnetworks.com CumulusLinux-2.5 testing' state=present
+  apt_repository: repo='deb http://repo.cumulusnetworks.com CumulusLinux-2.5 testing' state=absent
+- name: add cl std
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3 cumulus upstream testing' state=absent
+- name: add cl security updates
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3-security-updates cumulus upstream testing' state=absent
+- name: add cl updates
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3-updates cumulus upstream testing' state=absent
+
+- name: add cl std
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3 cumulus upstream' state=present
+- name: add cl security updates
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3-security-updates cumulus upstream' state=present
+- name: add cl updates
+  apt_repository: repo='deb     http://repo3.cumulusnetworks.com/repo CumulusLinux-3-updates cumulus upstream' state=present
 
 # One of the key tasks of automation are to install and configure services on
 # servers. This example installs the rdnbr package with no custom configuration
