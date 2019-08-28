@@ -20,7 +20,7 @@
   become_method: sudo
   roles:
     - ifupdown
-#    - ifplugd
+    - ifplugd
 - hosts: server04
   user: cumulus
   become: yes
